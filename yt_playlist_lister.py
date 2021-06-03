@@ -6,7 +6,7 @@ from urllib.parse import parse_qs, urlparse
 
 youtube = googleapiclient.discovery.build("youtube", "v3", developerKey = "")
 
-url = 'https://www.youtube.com/playlist?list=PLHoPanaLuJVA6iHc_XHFFuyaikhnrCk9d'
+url = 'https://www.youtube.com/playlist?list=PLVnajstkNuvmi_Fx6-9rT-l2l1pMk8YHx'
 query = parse_qs(urlparse(url).query)
 
 playlist_query = query["list"][0]
@@ -25,6 +25,10 @@ while request is not None:
 playlist_output = open('ytplaylist.txt','w')
 
 for i in playlist_info:
-    playlist_output.write(f'{i["snippet"]["title"]}\n')
+    playlist_output.write(f'{i["snippet"]["title"]}\t')
     playlist_output.write(f'https://www.youtube.com/watch?v={i["snippet"]["resourceId"]["videoId"]}\n')
 
+if __name__ == '__main__':
+    
+    
+    pass
